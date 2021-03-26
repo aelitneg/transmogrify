@@ -1,0 +1,59 @@
+{
+    "name": "transmogrify",
+    "version": "1.0.0",
+    "description": "Microservice for converting file formats.",
+    "main": "app.js",
+    "scripts": {
+        "start": "NODE_ENV=production  node ./src/app.js",
+        "dev": "DEBUG=gm NODE_ENV=development node ./src/app.js",
+        "livereload": "DEBUG=gm NODE_ENV=development nodemon ./src/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FreightWise/transmogrify.git"
+    },
+    "author": "FreightWise, LLC",
+    "license": "MIT",
+    "private": true,
+    "bugs": {
+        "url": "https://github.com/FreightWise/transmogrify/issues"
+    },
+    "homepage": "https://github.com/FreightWise/transmogrify#readme",
+    "devDependencies": {
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.11.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.4.0",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.1.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
+    },
+    "dependencies": {
+        "@freightwise/logger": "^1.2.0",
+        "archiver": "^5.0.2",
+        "aws-sdk": "^2.756.0",
+        "axios": "^0.21.1",
+        "body-parser": "^1.19.0",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-useragent": "^1.0.15",
+        "ghostscript4js": "^3.2.1",
+        "glob": "^7.1.6",
+        "gm": "^1.23.1",
+        "helmet": "^4.1.1",
+        "jsqr": "^1.3.1",
+        "puppeteer": "^3.0.4",
+        "tmp": "^0.2.1",
+        "unzipper": "^0.10.11"
+    }
+}

@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/docker-existing-dockerfile
+{
+    "name": "Existing Dockerfile",
+
+    // Sets the run context to one level up instead of the .devcontainer folder.
+    "context": "..",
+
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    "dockerFile": "../Dockerfile",
+
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": null,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+
+    // TODO: Need to figure out how to put host port in config somewhere
+    "appPort": ["3012:8080"],
+
+    // Uncomment the next line to run commands after the container is created - for example installing curl.
+    "postCreateCommand": "chown -R pptruser:pptruser ${containerWorkspaceFolder}; apk update; apk add python build-base git; npm ci",
+
+    // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+    "runArgs": [
+        "--cap-add=SYS_ADMIN",
+        "--add-host=webvue.freightwisellc.local:192.168.65.2",
+        "--add-host=go.freightwisellc.local:192.168.65.2"
+    ],
+
+    // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+    // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+    "mounts": [],
+
+    "containerEnv": {
+        "NODE_ENV": "development", // Needed to install devDependencies + extensions
+        "GS4JS_HOME": "/usr/lib",
+        "GS4JS_LIB": "libgs.so.9.50"
+    },
+
+    // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "root",
+    "containerUser": "pptruser"
+}
