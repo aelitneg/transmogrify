@@ -23,7 +23,7 @@
     "appPort": ["3012:8080"],
 
     // Uncomment the next line to run commands after the container is created - for example installing curl.
-    "postCreateCommand": "chown -R pptruser:pptruser ${containerWorkspaceFolder}; apk update; apk add python build-base git; npm ci",
+    "postCreateCommand": "chown -R pptruser:pptruser ${containerWorkspaceFolder}; apk update; apk add python3 build-base git; npm ci",
 
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
@@ -39,7 +39,7 @@
     "containerEnv": {
         "NODE_ENV": "development", // Needed to install devDependencies + extensions
         "GS4JS_HOME": "/usr/lib",
-        "GS4JS_LIB": "libgs.so.9.50"
+        "GS4JS_LIB": "libgs.so.9.55"
     },
 
     // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
