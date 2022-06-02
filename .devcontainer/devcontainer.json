@@ -23,7 +23,7 @@
     "appPort": ["3012:8080"],
 
     // Uncomment the next line to run commands after the container is created - for example installing curl.
-    "postCreateCommand": "chown -R pptruser:pptruser ${containerWorkspaceFolder}; apk update; apk add python build-base git; npm ci",
+    "postCreateCommand": "chown -R pptruser:pptruser ${containerWorkspaceFolder}; apk update; apk add python3 build-base git; npm ci",
 
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
