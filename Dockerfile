@@ -15,12 +15,12 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 RUN apk add \
-    python \
+    python3 \
     build-base \
     imagemagick
 
 ENV GS4JS_HOME=/usr/lib
-ENV GS4JS_LIB=libgs.so.9.50
+ENV GS4JS_LIB=libgs.so.9.55
 
 RUN npm ci --production
 
