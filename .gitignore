@@ -136,7 +136,7 @@ public/
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
 
 ### NPM Config ###
-#.npmrc
+.npmrc
 
 ### AWS Credentials
 .aws
